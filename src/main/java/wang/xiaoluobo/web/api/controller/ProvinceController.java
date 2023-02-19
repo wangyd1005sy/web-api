@@ -5,10 +5,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import wang.xiaoluobo.web.api.dto.ServerResponse;
 import wang.xiaoluobo.web.api.model.ProvinceEntity;
 import wang.xiaoluobo.web.api.service.IProvinceService;
@@ -37,6 +34,7 @@ public class ProvinceController {
             @ApiResponse(code = 604, message = "INVALID_PARAM")
     })
     @RequestMapping(value = "/getProvinceList", method = {RequestMethod.GET})
+    @ResponseBody
     public String getProvinceList(@RequestParam(required = false) String province) {
         Page<ProvinceEntity> page = provinceService.page(new Page<>(1, 10));
         return ServerResponse.toSuccessJSONString(page);
