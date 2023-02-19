@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: yXOswG1CEvmlKcSp
+    url: jdbc:mysql://localhost:3306/web-api?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+
+logging:
+  level:
+    root: info
+swagger:
+  enable: true

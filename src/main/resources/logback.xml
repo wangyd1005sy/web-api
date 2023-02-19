@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <springProperty scope="context" name="appName" source="spring.application.name" defaultValue="web-api"/>
+    <springProperty scope="context" name="logLevel" source="logLevel" defaultValue="INFO"/>
+    <springProperty scope="context" name="logRef" source="logRef" defaultValue="console"/>
+    <property name="logPattern" value="{&quot;date&quot;:&quot;%date{yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSS}&quot;,&quot;level&quot;:&quot;%level&quot;,&quot;appName&quot;:&quot;${appName}&quot;,&quot;class&quot;:&quot;%logger&quot;,&quot;method&quot;:&quot;%method&quot;,&quot;line&quot;:&quot;%line&quot;,&quot;message&quot;:&quot;%replace(%msg){&apos;&quot;&apos;, &apos;`&apos;} %ex&quot;}%n" />
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger:%line - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="default" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/default.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <MaxHistory>15</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${logPattern}</pattern>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+    </appender>
+
+    <root level="${logLevel}">
+        <appender-ref ref="${logRef}" />
+        <appender-ref ref="default" />
+    </root>
+</configuration>
