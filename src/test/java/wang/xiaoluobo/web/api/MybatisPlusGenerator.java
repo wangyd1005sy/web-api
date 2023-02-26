@@ -2,6 +2,8 @@ package wang.xiaoluobo.web.api;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
+import com.baomidou.mybatisplus.generator.config.TemplateType;
+import com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
@@ -22,7 +24,7 @@ public class MybatisPlusGenerator {
 
     private static String author = "mybatis plus generator";
     private static String userDir = System.getProperty("user.dir");
-    private static String parentPackage = "wang.xiaoluobo.web.api";
+    private static String parentPackage = "wang.xiaoluobo.web.api.system";
 
     private static String projectPath = userDir;
     private static String generatorJavaCodePath = projectPath + "/src/main/java";
@@ -71,6 +73,7 @@ public class MybatisPlusGenerator {
                             .enableLombok();
                 })
                 .templateEngine(new FreemarkerTemplateEngine())
+                .templateConfig(builder -> builder.controller("").disable(TemplateType.CONTROLLER))
                 .execute();
     }
 }

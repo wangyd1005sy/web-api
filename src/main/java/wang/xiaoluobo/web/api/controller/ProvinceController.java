@@ -37,6 +37,6 @@ public class ProvinceController {
     @ResponseBody
     public String getProvinceList(@RequestParam(required = false) String province) {
         Page<ProvinceEntity> page = provinceService.page(new Page<>(1, 10));
-        return ServerResponse.toSuccessJSONString(page);
+        return ServerResponse.success(page);
     }
 }

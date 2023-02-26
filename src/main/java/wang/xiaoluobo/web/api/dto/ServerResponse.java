@@ -37,7 +37,7 @@ public class ServerResponse<T> implements Serializable {
      * @param data
      * @return
      */
-    public static <T> String toSuccessJSONString(T data) {
+    public static <T> String success(T data) {
         ServerResponse<T> serverResponse = new ServerResponse<>();
         serverResponse.setStatus(ServerResponseEnum.SUCCESS.getCode());
         serverResponse.setData(data);
@@ -46,7 +46,7 @@ public class ServerResponse<T> implements Serializable {
         return responseData;
     }
 
-    public static String toErrorJSONString(ServerResponseEnum serverResponseEnum) {
+    public static String fail(ServerResponseEnum serverResponseEnum) {
         ServerResponse serverResponse = new ServerResponse();
         serverResponse.setStatus(serverResponseEnum.getCode());
         serverResponse.setErr(serverResponseEnum.getMessage());
