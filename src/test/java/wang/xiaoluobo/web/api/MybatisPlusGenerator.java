@@ -30,7 +30,14 @@ public class MybatisPlusGenerator {
     private static List<String> tableList = new ArrayList<>();
 
     static {
-        tableList.add("t_province");
+//        tableList.add("t_province");
+        tableList.add("t_system_user");
+        tableList.add("t_system_resource");
+        tableList.add("t_system_role");
+        tableList.add("t_system_role_resource");
+        tableList.add("t_system_user_role");
+        tableList.add("t_system_user_data_role");
+        tableList.add("t_system_data_type");
     }
 
     public static void main(String[] args) {
