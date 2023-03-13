@@ -1,9 +1,9 @@
 package wang.xiaoluobo.common.constant;
 
 /**
- * 返回状态码 */
-public class HttpStatus
-{
+ * 返回状态码
+ */
+public class HttpStatus {
     /**
      * 操作成功
      */
