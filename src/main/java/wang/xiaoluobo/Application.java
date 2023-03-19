@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 /**
  * 启动程序
  */
-@MapperScan("wang.xiaoluobo.web.api.mapper")
+@MapperScan(value = {"wang.xiaoluobo.web.api.mapper", "wang.xiaoluobo.project.monitor.mapper"})
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class Application {
     public static void main(String[] args) {

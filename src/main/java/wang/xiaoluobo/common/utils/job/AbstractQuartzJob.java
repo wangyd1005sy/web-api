@@ -14,7 +14,7 @@ import wang.xiaoluobo.common.utils.StringUtils;
 import wang.xiaoluobo.common.utils.bean.BeanUtils;
 import wang.xiaoluobo.common.utils.spring.SpringUtils;
 import wang.xiaoluobo.project.monitor.domain.SysJob;
-import wang.xiaoluobo.project.monitor.domain.SysJobLog;
+import wang.xiaoluobo.project.monitor.domain.SysJobLogEntity;
 import wang.xiaoluobo.project.monitor.service.ISysJobLogService;
 
 /**
@@ -57,20 +57,21 @@ public abstract class AbstractQuartzJob implements Job {
     /**
      * 执行后
      *
-     * @param context        工作执行上下文对象
-     * @param sysScheduleJob 系统计划任务
+     * @param context 工作执行上下文对象
+     * @param sysJob  系统计划任务
+     * @param e
      */
     protected void after(JobExecutionContext context, SysJob sysJob, Exception e) {
         Date startTime = threadLocal.get();
         threadLocal.remove();
 
-        final SysJobLog sysJobLog = new SysJobLog();
+        final SysJobLogEntity sysJobLog = new SysJobLogEntity();
         sysJobLog.setJobName(sysJob.getJobName());
         sysJobLog.setJobGroup(sysJob.getJobGroup());
         sysJobLog.setInvokeTarget(sysJob.getInvokeTarget());
-        sysJobLog.setStartTime(startTime);
-        sysJobLog.setStopTime(new Date());
-        long runMs = sysJobLog.getStopTime().getTime() - sysJobLog.getStartTime().getTime();
+//        sysJobLog.setStartTime(startTime);
+//        sysJobLog.setStopTime(new Date());
+        long runMs = new Date().getTime() - startTime.getTime();
         sysJobLog.setJobMessage(sysJobLog.getJobName() + " 总共耗时：" + runMs + "毫秒");
         if (e != null) {
             sysJobLog.setStatus(Constants.FAIL);
@@ -81,7 +82,7 @@ public abstract class AbstractQuartzJob implements Job {
         }
 
         // 写入数据库当中
-        SpringUtils.getBean(ISysJobLogService.class).addJobLog(sysJobLog);
+        SpringUtils.getBean(ISysJobLogService.class).save(sysJobLog);
     }
 
     /**

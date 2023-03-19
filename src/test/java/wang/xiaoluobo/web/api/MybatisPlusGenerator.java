@@ -24,7 +24,7 @@ public class MybatisPlusGenerator {
     private static String author = "mybatis plus generator";
     private static String userDir = System.getProperty("user.dir");
     //    private static String parentPackage = "wang.xiaoluobo.system.framework";
-    private static String parentPackage = "wang.xiaoluobo.project.tool.gen";
+    private static String parentPackage = "wang.xiaoluobo.project.monitor";
 
     private static String projectPath = userDir;
     private static String generatorJavaCodePath = projectPath + "/src/main/java";
