@@ -57,10 +57,10 @@ public class SysJobLogController extends BaseController {
         if (StringUtils.isNotBlank(sysJobLog.getInvokeTarget())) {
             queryWrapper.like(SysJobLogEntity::getInvokeTarget, sysJobLog.getInvokeTarget());
         }
-        if (StringUtils.isNotBlank(String.valueOf(sysJobLog.getParams().get("beginTime")))) {
+        if (sysJobLog.getParams().get("beginTime") != null) {
             queryWrapper.ge(SysJobLogEntity::getCreateTime, sysJobLog.getParams().get("beginTime") + " 00:00:00");
         }
-        if (StringUtils.isNotBlank(String.valueOf(sysJobLog.getParams().get("endTime")))) {
+        if (sysJobLog.getParams().get("endTime") != null) {
             queryWrapper.le(SysJobLogEntity::getInvokeTarget, sysJobLog.getParams().get("endTime") + " 23:59:59");
         }
         Page<SysJobLogEntity> page = jobLogService.page(new Page<>(), queryWrapper);
