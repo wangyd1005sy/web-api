@@ -21,8 +21,6 @@ import wang.xiaoluobo.framework.web.controller.BaseController;
 import wang.xiaoluobo.framework.web.domain.AjaxResult;
 import wang.xiaoluobo.project.system.domain.SysMenu;
 import wang.xiaoluobo.project.system.service.ISysMenuService;
-import wang.xiaoluobo.web.api.model.TestDataEntity;
-import wang.xiaoluobo.web.api.service.ITestDataService;
 
 import javax.annotation.Resource;
 
@@ -34,9 +32,6 @@ import javax.annotation.Resource;
 public class SysMenuController extends BaseController {
     @Autowired
     private ISysMenuService menuService;
-
-    @Resource
-    private ITestDataService testDataService;
 
     /**
      * 获取菜单列表

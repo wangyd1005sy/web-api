@@ -2,6 +2,7 @@ package wang.xiaoluobo.web.api;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
+import com.baomidou.mybatisplus.generator.config.TemplateType;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
@@ -22,16 +23,15 @@ public class MybatisPlusGenerator {
 
     private static String author = "mybatis plus generator";
     private static String userDir = System.getProperty("user.dir");
-    private static String parentPackage = "wang.xiaoluobo.web.api";
+    //    private static String parentPackage = "wang.xiaoluobo.system.framework";
+    private static String parentPackage = "wang.xiaoluobo.project.tool.gen";
 
     private static String projectPath = userDir;
     private static String generatorJavaCodePath = projectPath + "/src/main/java";
-    private static String generatorXMLMapperPath = projectPath + "/src/main/resources/mapper";
+    private static String generatorXMLMapperPath = projectPath + "/src/main/resources/mapper/tool";
     private static List<String> tableList = new ArrayList<>();
 
     static {
-        tableList.add("test_data");
-
 //        tableList.add("gen_table");
 //        tableList.add("gen_table_column");
 //        tableList.add("sys_config");
@@ -39,7 +39,7 @@ public class MybatisPlusGenerator {
 //        tableList.add("sys_dict_data");
 //        tableList.add("sys_dict_type");
 //        tableList.add("sys_job");
-//        tableList.add("sys_job_log");
+        tableList.add("sys_job_log");
 //        tableList.add("sys_logininfor");
 //        tableList.add("sys_menu");
 //        tableList.add("sys_notice");
@@ -69,7 +69,7 @@ public class MybatisPlusGenerator {
                 .packageConfig(builder -> {
                     builder.parent(parentPackage) // 设置父包名
                             .controller("controller")
-                            .entity("model")
+                            .entity("domain")
                             .mapper("mapper")
                             .service("service")
                             .serviceImpl("service.impl")
@@ -81,9 +81,14 @@ public class MybatisPlusGenerator {
                             .entityBuilder()
                             .enableFileOverride()
                             .convertFileName(entityName -> entityName + "Entity")
-                            .enableLombok();
+                            .enableLombok()
+                            .serviceBuilder().enableFileOverride()
+                            .mapperBuilder().enableFileOverride();
                 })
                 .templateEngine(new FreemarkerTemplateEngine())
+                .templateConfig(builder -> {
+                    builder.disable(TemplateType.CONTROLLER);
+                })
                 .execute();
     }
 }

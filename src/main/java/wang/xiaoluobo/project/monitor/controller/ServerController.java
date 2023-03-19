@@ -9,16 +9,13 @@ import wang.xiaoluobo.framework.web.domain.Server;
 
 /**
  * 服务器监控
-
  */
 @RestController
 @RequestMapping("/monitor/server")
-public class ServerController
-{
+public class ServerController {
     @PreAuthorize("@ss.hasPermi('monitor:server:list')")
     @GetMapping()
-    public AjaxResult getInfo() throws Exception
-    {
+    public AjaxResult getInfo() throws Exception {
         Server server = new Server();
         server.copyTo();
         return AjaxResult.success(server);
