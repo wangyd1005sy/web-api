@@ -5,18 +5,17 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
 import wang.xiaoluobo.common.constant.CacheConstants;
 import wang.xiaoluobo.framework.aspectj.lang.enums.LimitType;
 
 /**
  * 限流注解
-
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface RateLimiter
-{
+public @interface RateLimiter {
     /**
      * 限流key
      */
