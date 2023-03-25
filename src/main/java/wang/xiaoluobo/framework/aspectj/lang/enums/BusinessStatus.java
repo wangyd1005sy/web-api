@@ -2,11 +2,8 @@ package wang.xiaoluobo.framework.aspectj.lang.enums;
 
 /**
  * 操作状态
- 
- *
  */
-public enum BusinessStatus
-{
+public enum BusinessStatus {
     /**
      * 成功
      */

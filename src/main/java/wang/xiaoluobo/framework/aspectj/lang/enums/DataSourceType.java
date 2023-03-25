@@ -2,10 +2,8 @@ package wang.xiaoluobo.framework.aspectj.lang.enums;
 
 /**
  * 数据源
-
  */
-public enum DataSourceType
-{
+public enum DataSourceType {
     /**
      * 主库
      */

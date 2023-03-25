@@ -3,9 +3,7 @@ package wang.xiaoluobo.framework.aspectj.lang.enums;
 /**
  * 限流类型
  */
-
-public enum LimitType
-{
+public enum LimitType {
     /**
      * 默认策略全局限流
      */
