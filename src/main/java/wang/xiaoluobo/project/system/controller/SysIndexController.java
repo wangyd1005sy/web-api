@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import wang.xiaoluobo.common.utils.StringUtils;
-import wang.xiaoluobo.framework.config.RuoYiConfig;
+import wang.xiaoluobo.framework.config.AppConfig;
 
 /**
  * 首页
@@ -14,7 +14,7 @@ public class SysIndexController
 {
     /** 系统基础配置 */
     @Autowired
-    private RuoYiConfig ruoyiConfig;
+    private AppConfig ruoyiConfig;
 
     /**
      * 访问首页，提示语

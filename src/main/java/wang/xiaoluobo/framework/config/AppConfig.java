@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ConfigurationProperties(prefix = "app")
-public class RuoYiConfig {
+public class AppConfig {
     /**
      * 项目名称
      */
@@ -76,7 +76,7 @@ public class RuoYiConfig {
     }
 
     public void setProfile(String profile) {
-        RuoYiConfig.profile = profile;
+        AppConfig.profile = profile;
     }
 
     public static boolean isAddressEnabled() {
@@ -84,7 +84,7 @@ public class RuoYiConfig {
     }
 
     public void setAddressEnabled(boolean addressEnabled) {
-        RuoYiConfig.addressEnabled = addressEnabled;
+        AppConfig.addressEnabled = addressEnabled;
     }
 
     /**

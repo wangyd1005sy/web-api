@@ -24,14 +24,16 @@ public class MybatisPlusGenerator {
     private static String author = "mybatis plus generator";
     private static String userDir = System.getProperty("user.dir");
     //    private static String parentPackage = "wang.xiaoluobo.system.framework";
-    private static String parentPackage = "wang.xiaoluobo.project.monitor";
+    private static String parentPackage = "wang.xiaoluobo.web.api";
 
     private static String projectPath = userDir;
     private static String generatorJavaCodePath = projectPath + "/src/main/java";
-    private static String generatorXMLMapperPath = projectPath + "/src/main/resources/mapper/tool";
+    private static String generatorXMLMapperPath = projectPath + "/src/main/resources/mapper";
     private static List<String> tableList = new ArrayList<>();
 
     static {
+        tableList.add("t_test_data_config");
+
 //        tableList.add("gen_table");
 //        tableList.add("gen_table_column");
 //        tableList.add("sys_config");
@@ -39,7 +41,7 @@ public class MybatisPlusGenerator {
 //        tableList.add("sys_dict_data");
 //        tableList.add("sys_dict_type");
 //        tableList.add("sys_job");
-        tableList.add("sys_job_log");
+//        tableList.add("sys_job_log");
 //        tableList.add("sys_logininfor");
 //        tableList.add("sys_menu");
 //        tableList.add("sys_notice");

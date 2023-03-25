@@ -15,7 +15,7 @@ import wang.xiaoluobo.common.utils.file.FileUploadUtils;
 import wang.xiaoluobo.common.utils.file.MimeTypeUtils;
 import wang.xiaoluobo.framework.aspectj.lang.annotation.Log;
 import wang.xiaoluobo.framework.aspectj.lang.enums.BusinessType;
-import wang.xiaoluobo.framework.config.RuoYiConfig;
+import wang.xiaoluobo.framework.config.AppConfig;
 import wang.xiaoluobo.framework.security.LoginUser;
 import wang.xiaoluobo.framework.security.service.TokenService;
 import wang.xiaoluobo.framework.web.controller.BaseController;
@@ -124,7 +124,7 @@ public class SysProfileController extends BaseController
         if (!file.isEmpty())
         {
             LoginUser loginUser = getLoginUser();
-            String avatar = FileUploadUtils.upload(RuoYiConfig.getAvatarPath(), file, MimeTypeUtils.IMAGE_EXTENSION);
+            String avatar = FileUploadUtils.upload(AppConfig.getAvatarPath(), file, MimeTypeUtils.IMAGE_EXTENSION);
             if (userService.updateUserAvatar(loginUser.getUsername(), avatar))
             {
                 AjaxResult ajax = AjaxResult.success();

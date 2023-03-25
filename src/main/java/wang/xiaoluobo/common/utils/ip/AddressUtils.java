@@ -7,7 +7,7 @@ import com.alibaba.fastjson2.JSONObject;
 import wang.xiaoluobo.common.constant.Constants;
 import wang.xiaoluobo.common.utils.StringUtils;
 import wang.xiaoluobo.common.utils.http.HttpUtils;
-import wang.xiaoluobo.framework.config.RuoYiConfig;
+import wang.xiaoluobo.framework.config.AppConfig;
 
 /**
  * 获取地址类
@@ -26,7 +26,7 @@ public class AddressUtils {
         if (IpUtils.internalIp(ip)) {
             return "内网IP";
         }
-        if (RuoYiConfig.isAddressEnabled()) {
+        if (AppConfig.isAddressEnabled()) {
             try {
                 String rspStr = HttpUtils.sendGet(IP_URL, "ip=" + ip + "&json=true", Constants.GBK);
                 if (StringUtils.isEmpty(rspStr)) {

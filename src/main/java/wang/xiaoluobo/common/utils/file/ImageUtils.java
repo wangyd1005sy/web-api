@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import wang.xiaoluobo.common.constant.Constants;
 import wang.xiaoluobo.common.utils.StringUtils;
-import wang.xiaoluobo.framework.config.RuoYiConfig;
+import wang.xiaoluobo.framework.config.AppConfig;
 
 /**
  * 图片处理工具类
@@ -62,7 +62,7 @@ public class ImageUtils {
                 in = urlConnection.getInputStream();
             } else {
                 // 本机地址
-                String localPath = RuoYiConfig.getProfile();
+                String localPath = AppConfig.getProfile();
                 String downloadPath = localPath + StringUtils.substringAfter(url, Constants.RESOURCE_PREFIX);
                 in = new FileInputStream(downloadPath);
             }

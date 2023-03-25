@@ -83,7 +83,7 @@ import wang.xiaoluobo.framework.aspectj.lang.annotation.Excel;
 import wang.xiaoluobo.framework.aspectj.lang.annotation.Excel.ColumnType;
 import wang.xiaoluobo.framework.aspectj.lang.annotation.Excel.Type;
 import wang.xiaoluobo.framework.aspectj.lang.annotation.Excels;
-import wang.xiaoluobo.framework.config.RuoYiConfig;
+import wang.xiaoluobo.framework.config.AppConfig;
 import wang.xiaoluobo.framework.web.domain.AjaxResult;
 
 /**
@@ -1128,7 +1128,7 @@ public class ExcelUtil<T> {
      * @param filename 文件名称
      */
     public String getAbsoluteFile(String filename) {
-        String downloadPath = RuoYiConfig.getDownloadPath() + filename;
+        String downloadPath = AppConfig.getDownloadPath() + filename;
         File desc = new File(downloadPath);
         if (!desc.getParentFile().exists()) {
             desc.getParentFile().mkdirs();

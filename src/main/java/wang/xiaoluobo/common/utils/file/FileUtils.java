@@ -18,7 +18,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import wang.xiaoluobo.common.utils.DateUtils;
 import wang.xiaoluobo.common.utils.StringUtils;
 import wang.xiaoluobo.common.utils.uuid.IdUtils;
-import wang.xiaoluobo.framework.config.RuoYiConfig;
+import wang.xiaoluobo.framework.config.AppConfig;
 
 /**
  * 文件处理工具类
@@ -62,7 +62,7 @@ public class FileUtils {
      * @throws IOException IO异常
      */
     public static String writeImportBytes(byte[] data) throws IOException {
-        return writeBytes(data, RuoYiConfig.getImportPath());
+        return writeBytes(data, AppConfig.getImportPath());
     }
 
     /**
