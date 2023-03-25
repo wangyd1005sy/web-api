@@ -1,22 +1,21 @@
 package wang.xiaoluobo.framework.config;
 
 import java.util.Properties;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
+
 import static com.google.code.kaptcha.Constants.*;
 
 /**
  * 验证码配置
-
  */
 @Configuration
-public class CaptchaConfig
-{
+public class CaptchaConfig {
     @Bean(name = "captchaProducer")
-    public DefaultKaptcha getKaptchaBean()
-    {
+    public DefaultKaptcha getCaptchaBean() {
         DefaultKaptcha defaultKaptcha = new DefaultKaptcha();
         Properties properties = new Properties();
         // 是否有边框 默认为true 我们可以自己设置yes，no
@@ -43,8 +42,7 @@ public class CaptchaConfig
     }
 
     @Bean(name = "captchaProducerMath")
-    public DefaultKaptcha getKaptchaBeanMath()
-    {
+    public DefaultKaptcha getCaptchaBeanMath() {
         DefaultKaptcha defaultKaptcha = new DefaultKaptcha();
         Properties properties = new Properties();
         // 是否有边框 默认为true 我们可以自己设置yes，no
@@ -59,8 +57,8 @@ public class CaptchaConfig
         properties.setProperty(KAPTCHA_IMAGE_HEIGHT, "60");
         // 验证码文本字符大小 默认为40
         properties.setProperty(KAPTCHA_TEXTPRODUCER_FONT_SIZE, "35");
-        // KAPTCHA_SESSION_KEY
-        properties.setProperty(KAPTCHA_SESSION_CONFIG_KEY, "kaptchaCodeMath");
+        // CAPTCHA_SESSION_KEY
+        properties.setProperty(KAPTCHA_SESSION_CONFIG_KEY, "captchaCodeMath");
         // 验证码文本生成器
         properties.setProperty(KAPTCHA_TEXTPRODUCER_IMPL, "wang.xiaoluobo.framework.config.KaptchaTextCreator");
         // 验证码文本字符间距 默认为2
